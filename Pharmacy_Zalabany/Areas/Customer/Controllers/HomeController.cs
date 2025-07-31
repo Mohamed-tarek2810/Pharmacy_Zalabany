@@ -45,9 +45,7 @@ public class HomeController : Controller
 
     public IActionResult Details(int id)
     {
-        var product = _context.Products
-       
-            .FirstOrDefault(p => p.ProductId == id);
+        var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
 
         if (product == null)
             return NotFound(); 
