@@ -1,0 +1,82 @@
+﻿@model List<Products>
+@{
+    var discount = 50;
+}
+<header id="header" class="header fixed-top bg-white shadow-sm py-2" dir="rtl">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <!-- روابط التواصل -->
+        <div class="social-links d-flex align-items-center gap-3">
+            <a href="#" class="fs-5" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="fs-5" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/201234567890" class="fs-5" style="color: #25d366;"><i class="bi bi-whatsapp"></i></a>
+        </div>
+
+        <!-- اللوجو -->
+        <a href="index.html" class="logo d-flex align-items-center mx-3">
+            <h1 class="sitename text-dark fw-bold fs-3 mb-0">صيدلية الزلباني</h1>
+        </a>
+
+        <!-- القوائم -->
+        <nav id="navmenu" class="navmenu d-none d-xl-block">
+            <ul class="nav gap-3">
+                <li class="nav-item"> <a asp-area="Customer" asp-controller="Home"asp-action="Index"asp-fragment="hero" class="nav-link text-dark fw-semibold">الصفحة الرئيسية </a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="about" class="nav-link text-dark fw-semibold">من نحن</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="services" class="nav-link text-dark fw-semibold">الخدمات</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="portfolio" class="nav-link text-dark fw-semibold">المنتجات</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="contact" class="nav-link text-dark fw-semibold">تواصل معنا</a></li>
+            </ul>
+        </nav>
+
+        <!-- زر القوائم للموبايل -->
+        <i class="mobile-nav-toggle d-xl-none bi bi-list fs-2 text-dark"></i>
+
+    </div>
+</header>
+
+
+
+<div class="container">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @foreach (var item in Model)
+                {
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@item.Category.Name</div>
+                            <!-- HOT badge-->
+                            @if (item.Discount > discount)
+                            {
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; left: 0.5rem">HOT (@item.Discount%)</div>
+                            }
+                            <!-- Product image-->
+                            <img class="card-img-top" src="~/assets/img/portfolio/@item.MainImg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">@item.Name</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">@item.Price.ToString("c")</span>
+                                    @((item.Price - (item.Price * ((decimal)item.Discount / 100))).ToString("c"))
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a asp-area="Customer" asp-controller="Home" asp-action="Details" class="btn btn-outline-dark mt-auto">عرض تفاصيل المنتج</a></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>

@@ -1,0 +1,137 @@
+﻿<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4 fw-bold">
+            لوحة القيادة
+        </h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">نظرة عامة على لوحة القيادة</li>
+        </ol>
+
+        <!-- Cards -->
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4 shadow-lg">
+                    <div class="card-body">Users</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4 shadow-lg">
+                    <div class="card-body">Orders</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4 shadow-lg">
+                    <div class="card-body">Revenue</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4 shadow-lg">
+                    <div class="card-body">Errors</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row">
+            <div class="col-xl-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-light fw-semibold">
+                        <i class="fas fa-chart-area me-1"></i>
+                        Area Chart - Visitors
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myAreaChart" width="100%" height="40"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-light fw-semibold">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        Bar Chart - Sales
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myBarChart" width="100%" height="40"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Area Chart Script -->
+<script>
+    const ctxArea = document.getElementById('myAreaChart').getContext('2d');
+    new Chart(ctxArea, {
+        type: 'line',
+        data: {
+            labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            datasets: [{
+                label: 'Visitors',
+                data: [120, 190, 300, 250, 220, 400, 500],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+
+<!-- Bar Chart Script -->
+<script>
+    const ctxBar = document.getElementById('myBarChart').getContext('2d');
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Sales',
+                data: [500, 700, 800, 600, 900, 1100],
+                backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

@@ -1,0 +1,26 @@
+﻿@model Pharmacy_Zalabany.Models.Notes
+
+<body>
+    <div class="container mt-5">
+        <h2 style="font-size: 28px; margin-bottom: 20px; margin-top: 30px;">
+            اضافه ملاحظات جديده
+        </h2>
+
+        <form method="post">
+            <!--  الملحوظات -->
+            <div class="mb-3">
+                <label for="notes" class="form-label">اضافه خانه الملحوظات</label>
+                <input type="text" class="form-control" id="notes" name="notes" value="@Model?.notes" />
+            </div>
+
+            <!--  الكاتبه  -->
+            <div class="mb-3">
+                <label for="Auther" class="form-label">اضافه اسم الكاتب </label>
+                <input type="text" class="form-control" id="Auther" name="Auther" value="@Model?.Auther" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">حفظ</button>
+            <a href="/Admin/Notes" class="btn btn-secondary">الغاء</a>
+        </form>
+    </div>
+</body>

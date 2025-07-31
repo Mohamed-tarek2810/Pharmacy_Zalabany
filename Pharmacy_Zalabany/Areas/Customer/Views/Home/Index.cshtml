@@ -1,0 +1,655 @@
+﻿ @model RelatedandtopVm 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدليتنا - الرعاية الصحية الأولى</title>
+    <!-- يمكنك إضافة أي روابط إضافية للخطوط العربية هنا -->
+</head>
+
+<body class="index-page">
+
+    <main class="main">
+        <header id="header" class="header d-flex align-items-center fixed-top" dir="rtl">
+            <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+                <div class="social-links d-flex gap-4 mt-3">
+                    <a href="#" class="fs-4" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="fs-4" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
+                    <a href="https://wa.me/201234567890" class="fs-4" style="color: #25d366;"><i class="bi bi-whatsapp"></i></a>
+
+                </div>
+
+
+                <a href="index.html" class="logo d-flex align-items-center ms-4" dir="rtl">
+                    <h1 class="sitename text-end mb-0">صيدلية الزلباني</h1>
+                </a>
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="#hero" class="active">الرئيسية</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#portfolio">المنتجات</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+                </nav>
+
+                <a asp-area="Customer" asp-controller="Home" asp-action="Products"  class="cta-btn">ابدأ الآن</a>
+
+
+
+            </div>
+        </header>
+        <!-- قسم البطل -->
+        <section id="hero" class="hero section dark-background">
+
+            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+            <div class="container d-flex flex-column align-items-center">
+                <h2 data-aos="fade-up" data-aos-delay="100">صحتك. راحتك. أولويتنا.</h2>
+                <p data-aos="fade-up" data-aos-delay="200">نحن فريق من الصيادلة المختصين نقدم لكم أفضل الحلول الصحية</p>
+                @* <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300"> *@
+                @*     <a href="#about" class="btn-get-started">ابدأ معنا</a> *@
+                @*     <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>شاهد الفيديو</span></a> *@
+                @* </div> *@
+            </div>
+
+        </section><!-- /قسم البطل -->
+        <!-- قسم من نحن -->
+        <section id="about" class="about section">
+
+            <div class="container">
+
+                <div class="row gy-4">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <h3>رعاية صحية متكاملة بمعايير عالمية</h3>
+                        <img src="assets/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
+                        <p>نقدم في صيدليتنا أحدث الأدوية والمستلزمات الطبية بجودة عالية وأسعار تنافسية. فريقنا من الصيادلة المؤهلين دائماً على استعداد لتقديم الاستشارات الدوائية والنصائح الصحية.</p>
+                        <p>نسعى جاهدين لتوفير بيئة صحية آمنة للمجتمع من خلال توفير الأدوية الأساسية والمكملات الغذائية بمعايير الجودة العالمية، مع الاهتمام بتوعية المرضى حول الاستخدام الأمثل للأدوية.</p>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+                        <div class="content ps-0 ps-lg-5">
+                            <p class="fst-italic">
+                                "العناية بصحتكم هي شغفنا وهدفنا الأول"
+                            </p>
+                            <ul>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>أدوية أصلية مع ضمان الجودة</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>استشارات صيدلانية مجانية</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i> <span>خدمة التوصيل السريع للمنازل</span></li>
+                            </ul>
+                            <p>
+                                نتميز بتوفير أحدث المنتجات الطبية والعناية بالبشرة من كبرى الشركات العالمية، مع فريق عمل مدرب على أعلى مستوى لضمان راحتكم ورضاكم.
+                            </p>
+
+                            <div class="position-relative mt-4">
+                                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /قسم من نحن -->
+        <!-- قسم الإحصائيات -->
+        <section id="stats" class="stats section light-background">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                @* <div class="row gy-4"> *@
+
+                @*     <div class="col-lg-3 col-md-6"> *@
+                @*         <div class="stats-item d-flex align-items-center w-100 h-100"> *@
+                @*             <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i> *@
+                @*             <div> *@
+                @*                 <span data-purecounter-start="0" data-purecounter-end="1250" data-purecounter-duration="1" class="purecounter"></span> *@
+                @*                 <p>عملاء سعداء</p> *@
+                @*             </div> *@
+                @*         </div> *@
+                @*     </div><!-- End Stats Item --> *@
+
+                @*     <div class="col-lg-3 col-md-6"> *@
+                @*         <div class="stats-item d-flex align-items-center w-100 h-100"> *@
+                @*             <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i> *@
+                @*             <div> *@
+                @*                 <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span> *@
+                @*                 <p>منتج طبي</p> *@
+                @*             </div> *@
+                @*         </div> *@
+                @*     </div><!-- End Stats Item --> *@
+
+                @*     <div class="col-lg-3 col-md-6"> *@
+                @*         <div class="stats-item d-flex align-items-center w-100 h-100"> *@
+                @*             <i class="bi bi-headset color-green flex-shrink-0"></i> *@
+                @*             <div> *@
+                @*                 <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span> *@
+                @*                 <p>ساعة دعم</p> *@
+                @*             </div> *@
+                @*         </div> *@
+                @*     </div><!-- End Stats Item --> *@
+
+                @*     <div class="col-lg-3 col-md-6"> *@
+                @*         <div class="stats-item d-flex align-items-center w-100 h-100"> *@
+                @*             <i class="bi bi-people color-pink flex-shrink-0"></i> *@
+                @*             <div> *@
+                @*                 <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span> *@
+                @*                 <p>فريق عمل</p> *@
+                @*             </div> *@
+                @*         </div> *@
+                @*     </div><!-- End Stats Item --> *@
+
+                @* </div> *@
+
+            </div>
+
+        </section><!-- /قسم الإحصائيات -->
+        <!-- قسم الخدمات -->
+        <section id="services" class="services section">
+
+            <!-- عنوان القسم -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>خدماتنا</h2>
+                <p>أبرز ما نقدمه لكم<br></p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-5">
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="assets/img/services-1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="details position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-activity"></i>
+                                </div>
+                                <a href="service-details.html" class="stretched-link">
+                                    <h3>استشارات صيدلانية</h3>
+                                </a>
+                                <p>نقدم استشارات صيدلانية متخصصة حول الأدوية والتفاعلات الدوائية والجرعات المناسبة.</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="assets/img/services-2.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="details position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-broadcast"></i>
+                                </div>
+                                <a href="service-details.html" class="stretched-link">
+                                    <h3>توصيل الأدوية</h3>
+                                </a>
+                                <p>خدمة توصيل سريعة وآمنة للأدوية والمستلزمات الطبية إلى منزلك في أسرع وقت.</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="service-item">
+                            <div class="img">
+                                <img src="assets/img/services-3.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="details position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-easel"></i>
+                                </div>
+                                <a href="service-details.html" class="stretched-link">
+                                    <h3>فحوصات سريعة</h3>
+                                </a>
+                                <p>نقدم فحوصات سريعة لضغط الدم، السكري، والكوليسترول بمقابل رمزي.</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /قسم الخدمات -->
+        <!-- قسم العملاء -->
+        <section id="clients" class="clients section light-background">
+
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                    <div class="col-xl-2 col-md-3 col-6 client-logo">
+                        <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+                    </div><!-- End Client Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /قسم العملاء -->
+        <!-- قسم المميزات -->
+        <section id="features" class="features section">
+
+            <div class="container">
+
+                <ul class="nav nav-tabs row  d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <li class="nav-item col-3">
+                        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                            <i class="bi bi-binoculars"></i>
+                            <h4 class="d-none d-lg-block">جودة المنتجات</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                            <i class="bi bi-box-seam"></i>
+                            <h4 class="d-none d-lg-block">خدمة التوصيل</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                            <i class="bi bi-brightness-high"></i>
+                            <h4 class="d-none d-lg-block">الاستشارات الطبية</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
+                            <i class="bi bi-command"></i>
+                            <h4 class="d-none d-lg-block">العروض الخاصة</h4>
+                        </a>
+                    </li>
+                </ul><!-- End Tab Nav -->
+
+                <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="tab-pane fade active show" id="features-tab-1">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>نضمن لكم منتجات أصلية بجودة عالية</h3>
+                                <p class="fst-italic">
+                                    "صحتكم لا تحتمل المقامرة، لذلك نتعامل فقط مع موردين معتمدين"
+                                </p>
+                                <ul>
+                                    <li>
+                                        <i class="bi bi-check2-all"></i>
+                                        <span>جميع الأدوية من مصادر معتمدة ومرخصة</span>
+                                    </li>
+                                    <li><i class="bi bi-check2-all"></i> <span>ضمان الجودة لكل منتج نبيعه</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>شهادات صحية معتمدة لجميع المستلزمات الطبية</span></li>
+                                </ul>
+                                <p>
+                                    نحرص في صيدليتنا على توفير الأدوية والمستلزمات الطبية من كبرى الشركات العالمية المعروفة بجودتها العالية، مع الحفاظ على سلسلة التبريد للأدوية التي تحتاج إلى ظروف تخزين خاصة.
+                                </p>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="assets/img/working-1.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div><!-- End Tab Content Item -->
+
+                    <div class="tab-pane fade" id="features-tab-2">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>توصيل سريع وآمن للأدوية إلى باب منزلك</h3>
+                                <p>
+                                    نقدم خدمة التوصيل السريع خلال 24 ساعة في جميع أنحاء المدينة، مع ضمان وصول الأدوية في أفضل حالة وبأعلى معايير السلامة.
+                                </p>
+                                <p class="fst-italic">
+                                    "راحتكم تهمنا، لذلك نوفر لكم خدمة التوصيل المجاني للطلبات فوق 200 ريال"
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span>توصيل خلال 24 ساعة</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>تغليف خاص للأدوية الحساسة</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>تتبع الطلب عبر الرسائل النصية</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>دفع آمن عند الاستلام أو عبر الإنترنت</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="assets/img/working-2.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div><!-- End Tab Content Item -->
+
+                    <div class="tab-pane fade" id="features-tab-3">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>استشارات صيدلانية متخصصة مجانية</h3>
+                                <p>
+                                    فريقنا من الصيادلة المؤهلين متاح دائماً لتقديم النصائح والإرشادات حول الاستخدام الأمثل للأدوية، التفاعلات الدوائية، والآثار الجانبية المحتملة.
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span>استشارات مجانية بدون موعد مسبق</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>إرشادات حول الجرعات والمواعيد</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>نصائح للتعامل مع الآثار الجانبية</span></li>
+                                </ul>
+                                <p class="fst-italic">
+                                    "لا تتردد في سؤال الصيدلي عن أي استفسار طبي، نحن هنا لمساعدتك"
+                                </p>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="assets/img/working-3.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div><!-- End Tab Content Item -->
+
+                    <div class="tab-pane fade" id="features-tab-4">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>عروض وتخفيضات خاصة على مجموعة واسعة من المنتجات</h3>
+                                <p>
+                                    نوفر بانتظام عروضاً وتخفيضات على الأدوية والمستلزمات الطبية والعناية الشخصية، مما يمكنك من توفير المال مع ضمان الجودة.
+                                </p>
+                                <p class="fst-italic">
+                                    "تابع صفحتنا على وسائل التواصل الاجتماعي لمعرفة أحدث العروض"
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check2-all"></i> <span>خصومات تصل إلى 30% على بعض المنتجات</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>عروض خاصة لكبار السن وذوي الاحتياجات الخاصة</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>برنامج ولاء لعملائنا الدائمين</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="assets/img/working-4.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div><!-- End Tab Content Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /قسم المميزات -->
+        <!-- قسم الخدمات 2 -->
+        <section id="services-2" class="services-2 section light-background">
+
+            <!-- عنوان القسم -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>خدماتنا</h2>
+                <p>اكتشف ما نقدمه لكم</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">الأدوية المزمنة</a></h4>
+                                <p class="description">نظام حجز وتذكير لتجديد أدوية الأمراض المزمنة مثل السكري وضغط الدم</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">المكملات الغذائية</a></h4>
+                                <p class="description">أفضل المكملات الغذائية والفيتامينات بأسعار تنافسية</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">العناية بالبشرة</a></h4>
+                                <p class="description">منتجات العناية بالبشرة الطبية من أفضل العلامات التجارية</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">مستلزمات الأطفال</a></h4>
+                                <p class="description">كل ما يلزم لرعاية طفلك من أدوية ومستلزمات طبية</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">الأجهزة الطبية</a></h4>
+                                <p class="description">أجهزة قياس الضغط، السكري، والعديد من الأجهزة الطبية الأخرى</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class=""></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">الرعاية المنزلية</a></h4>
+                                <p class="description">توفير مستلزمات الرعاية المنزلية للمرضى وكبار السن</p>
+                            </div>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /قسم آراء العملاء -->
+        <!-- قسم المنتجات -->
+        <section id="portfolio" class="portfolio section">
+
+            <!-- عنوان القسم -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>منتجاتنا</h2>
+                <p>تصفح  منتجاتنا</p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+                <div class="row gy-4 justify-content-center">
+                    @foreach (var item in Model.product)
+                    {
+                        <div class="col-lg-4 col-md-6 portfolio-item mb-4">
+                            <div class="portfolio-content">
+                                <img src="~/assets/img/portfolio/@item.MainImg" alt="@item.Name" class="img-fluid">
+                                <h5 class="product-title">@item.Name</h5>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <p class="price">
+                                    @if (item.Discount > 0)
+                                    {
+                                        var discountedPrice = item.Price - ((decimal)item.Price * (decimal)item.Discount / 100m);
+                                        <del>@item.Price.ToString("C")</del>
+                                        <span>@discountedPrice.ToString("C")</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@item.Price.ToString("C")</span>
+                                    }
+                                </p>
+                                @* <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a> *@
+                            </div>
+                        </div>
+                    }
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Products" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-sm">
+                            <i class="bi bi-cart-plus me-2"></i> عرض جميع المنتجات
+                        </a>
+                    </div>
+                </div><!-- End Isotope Container -->
+
+            </div><!-- End Container -->
+
+        </section><!-- /قسم المنتجات -->
+        </section><!-- /قسم الخدمات 2 -->
+        <!-- قسم آراء العملاء -->
+        <section id="testimonials" class="testimonials section dark-background">
+
+            <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="section-title">
+                    <h2>ملاحظاتنا لكم</h2>
+                    <p>رسائل ونصائح من فريق صيدليتنا لدعم صحتكم وراحتكم</p>
+                </div>
+
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": "auto",
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                          }
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="assets/img/notes/note-1.jpg" class="testimonial-img" alt="">
+                                <h3>نصيحة صحية</h3>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>تأكد من شرب كمية كافية من الماء يوميًا (8-10 أكواب) لدعم صحتك العامة وتعزيز عملية التمثيل الغذائي.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End note item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="assets/img/notes/note-2.jpg" class="testimonial-img" alt="">
+                                <h3>عرض خاص</h3>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>استفد من خصم 20% على جميع مكملات الفيتامينات هذا الأسبوع! زورونا الآن أو اطلبوا عبر الإنترنت.</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End note item -->
+
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+
+        </section><!-- /قسم ملاحظاتنا -->>
+
+                
+
+        <!-- قسم التواصل -->
+        <section id="contact" class="contact section light-background">
+
+            <!-- عنوان القسم -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>تواصلوا معنا</h2>
+                <p>نحن هنا لخدمتكم على مدار الساعة</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>العنوان</h3>
+                            <p>المحله الكبري، شارع المطاعم ،مصر</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-telephone"></i>
+                            <h3>اتصل بنا</h3>
+                            <p>01205322975</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bi bi-envelope"></i>
+                            <h3>راسلنا</h3>
+                            <p>info@pharmacy.com</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                </div>
+
+                <div class="row gy-4 mt-4">
+
+              
+                    </div><!-- End Contact Form -->
+
+                    
+                </div>
+
+            </div>
+
+        </section><!-- /قسم التواصل -->
+
+    </main><!-- End Main -->
+
+
+    <!-- Scroll Top Button -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

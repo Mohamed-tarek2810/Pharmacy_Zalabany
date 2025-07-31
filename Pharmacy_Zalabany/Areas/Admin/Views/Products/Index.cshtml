@@ -1,0 +1,102 @@
+﻿@* @model List<Products> *@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <title>قائمة المنتجات</title>
+
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+
+        <!-- العنوان وزر الإضافة -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold" style="font-size: 28px;">قائمة المنتجات</h2>
+            <a asp-area="Admin" asp-controller="Products" asp-action="Index1" class="btn btn-success">+ إضافة منتج جديد</a>
+        </div>
+
+        <!-- جدول المنتجات -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>الاسم</th>
+                        <th>الوصف</th>
+                        <th>السعر</th>
+                        <th>الخصمات</th>
+                        <th>الصورة</th>
+                        <th>حالة المنتج</th>
+                        <th>اسم الفئة</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            
+                            <td>@product.Name</td>
+
+                           
+                            <td>
+                                @if (!string.IsNullOrEmpty(product.Description) && product.Description.Length > 50)
+                                {
+                                    @($"{product.Description.Substring(0, 50)}...")
+                                }
+                                else
+                                {
+                                    @product.Description
+                                }
+                            </td>
+
+                            
+
+                            <td>@product.Price</td>
+
+                            <td>@($"{product.Discount}%")</td>
+                            
+                            <td>@product.MainImg</td>
+
+                            
+                            <td>
+                                @if (product.Status == true)
+                                {
+                                    <span class="badge bg-success">متاح</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">غير متاح</span>
+                                }
+                            </td>
+
+                            
+                            <td>@product.Category?.Name</td>
+
+                            
+                            <td>
+                                <a href="/Admin/Products/Edit?ProductId=@product.ProductId" class="btn btn-sm btn-warning mx-1">تعديل</a>
+                                <a href="/Admin/Products/Delete/@product.ProductId" class="btn btn-sm btn-danger mx-1"
+                                   onclick="return confirm('هل أنت متأكد أنك تريد حذف هذا المنتج؟');">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</>

@@ -1,0 +1,36 @@
+﻿@model Categorys
+<body>
+    <div class="container mt-5">
+        <h2 style="font-size: 28px; margin-bottom: 20px; margin-top: 30px;">
+           تعديل الفأت
+        </h2>
+
+        <form method="post">
+            <!-- Hidden ID -->
+            <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+
+            <!--  الكاتبه  -->
+            <div class="mb-3">
+                <label for="Name" class="form-label">تعديل الاسم </label>
+                <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" />
+            </div>
+
+            @* <div class="mb-3"> *@
+            @*     <label for="Description" class="form-label">تعديل الوصف </label> *@
+            @*     <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description" /> *@
+            @* </div> *@
+
+            @* <div class="mb-3"> *@
+            @*     <label for="MovieStatus" class="form-label">تعديل الحاله</label> <select name="MovieStatus" id="MovieStatus" class="form-select"> *@
+            @*         <option value="true">متاح </option> *@
+            @*         <option value="false">غير متاح</option> *@
+            @*     </select> *@
+            @* </div> *@
+
+
+            <button type="submit" class="btn btn-primary">اجراء التعديل</button>
+            <a href="/Admin/Categorys" class="btn btn-secondary">الغاء</a>
+        </form>
+
+    </div>
+</body>

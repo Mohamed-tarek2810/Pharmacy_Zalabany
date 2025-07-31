@@ -1,0 +1,29 @@
+﻿@model Notes
+<body>
+    <div class="container mt-5">
+        <h2 style="font-size: 28px; margin-bottom: 20px; margin-top: 30px;">
+           تعديل الملاحظات
+        </h2>
+
+        <form method="post">
+            <!-- Hidden ID -->
+            <input type="hidden" name="id" value="@Model.id" />
+
+            <!--  الملحوظات -->
+            <div class="mb-3">
+                <label for="notes" class="form-label">تعديل خانه الملحوظات</label>
+                <input type="text" class="form-control" id="notes" name="notes" value="@Model.notes" />
+            </div>
+
+            <!--  الكاتبه  -->
+            <div class="mb-3">
+                <label for="Auther" class="form-label">تعديل الكتابه </label>
+                <input type="text" class="form-control" id="Auther" name="Auther" value="@Model.Auther" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">اجراء التعديل</button>
+            <a href="/Admin/Notes" class="btn btn-secondary">الغاء</a>
+        </form>
+
+    </div>
+</body>

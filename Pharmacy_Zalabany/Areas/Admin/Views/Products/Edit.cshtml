@@ -1,0 +1,57 @@
+﻿@model CategoriesAndProductsvm
+
+<div class="container mt-5">
+    <h2 class="mb-4 mt-4 fs-3">تعديل بيانات المنتج</h2>
+
+    <form method="post">
+        <!-- Hidden ID -->
+        <input type="hidden" name="ProductId" value="@Model.Product!.ProductId" />
+
+        <!-- اسم المنتج -->
+        <div class="mb-3">
+            <label for="Name" class="form-label">اسم المنتج</label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Product!.Name" required />
+        </div>
+
+        <!-- وصف المنتج -->
+        <div class="mb-3">
+            <label for="Description" class="form-label">وصف المنتج</label>
+            <textarea class="form-control" id="Description" name="Description" rows="3">@Model.Product!.Description</textarea>
+        </div>
+
+        <!-- سعر المنتج -->
+        <div class="mb-3">
+            <label for="Price" class="form-label">سعر المنتج</label>
+            <input type="number" step="0.01" class="form-control" id="Price" name="Price" value="@Model.Product!.Price" required />
+        </div>
+
+        <!-- صورة المنتج -->
+        <div class="mb-3">
+            <label for="MainImg" class="form-label">رابط صورة المنتج</label>
+            <input type="text" class="form-control" id="MainImg" name="MainImg" value="@Model.Product!.MainImg" />
+        </div>
+
+        <!-- التصنيف -->
+        <div class="mb-3">
+            <label for="CategoryId" class="form-label">التصنيف</label>
+            <select class="form-select" name="CategoryId" id="CategoryId" value="@Model.Product!.CategoryId">
+                @foreach (var item in Model.Categorys)
+                {
+                    <option value="@item.CategoryId">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <!-- الحالة -->
+        <div class="mb-3">
+            <label for="MovieStatus" class="form-label">Status</label>
+            <select name="MovieStatus" id="MovieStatus" class="form-select">
+                <option value="true">متاح </option>
+                <option value="false">غير متاح</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+        <a href="/Admin/Products" class="btn btn-secondary">إلغاء</a>
+    </form>
+</div>
