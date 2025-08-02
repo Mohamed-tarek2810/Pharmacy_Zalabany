@@ -3,6 +3,6 @@
     public class CategoriesAndProductsvm
     {
         public Products? Product { get; set; }
-        public List<Categorys> Categorys { get; set; }
+        public List<Categorys?> Categorys { get; set; }
     }
 }

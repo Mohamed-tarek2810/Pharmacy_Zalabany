@@ -16,9 +16,16 @@
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
                 <div class="social-links d-flex gap-4 mt-3">
-                    <a href="#" class="fs-4" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/share/1LZLqauEJB/" class="fs-4" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="fs-4" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
-                    <a href="https://wa.me/201234567890" class="fs-4" style="color: #25d366;"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://wa.me/201205322975?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1"
+                       class="fs-4" style="color: #25d366;"
+                       target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+
+
+
 
                 </div>
 
@@ -47,7 +54,7 @@
         <!-- قسم البطل -->
         <section id="hero" class="hero section dark-background">
 
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+            <img src="assets/img/mo7.jpg" alt="" data-aos="fade-in">
 
             <div class="container d-flex flex-column align-items-center">
                 <h2 data-aos="fade-up" data-aos-delay="100">صحتك. راحتك. أولويتنا.</h2>
@@ -66,8 +73,8 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3>رعاية صحية متكاملة بمعايير عالمية</h3>
-                        <img src="assets/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
+                        <h3>احدث المنتجات العالميه </h3>
+                        <img src="assets/img/mo.jpg" class="img-fluid rounded-4 mb-4" alt="">
                         <p>نقدم في صيدليتنا أحدث الأدوية والمستلزمات الطبية بجودة عالية وأسعار تنافسية. فريقنا من الصيادلة المؤهلين دائماً على استعداد لتقديم الاستشارات الدوائية والنصائح الصحية.</p>
                         <p>نسعى جاهدين لتوفير بيئة صحية آمنة للمجتمع من خلال توفير الأدوية الأساسية والمكملات الغذائية بمعايير الجودة العالمية، مع الاهتمام بتوعية المرضى حول الاستخدام الأمثل للأدوية.</p>
                     </div>
@@ -86,8 +93,8 @@
                             </p>
 
                             <div class="position-relative mt-4">
-                                <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                                <img src="assets/img/mo1.jpg" class="img-fluid rounded-4" alt="">
+                                @* <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> *@
                             </div>
                         </div>
                     </div>
@@ -157,18 +164,32 @@
                 <p>أبرز ما نقدمه لكم<br></p>
             </div><!-- End Section Title -->
 
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <style>
+                .service-item .img {
+                    height: 600px; /* تحكم في ارتفاع الصورة هنا */
+                    overflow: hidden;
+                    border-radius: 10px;
+                }
 
+                    .service-item .img img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+            </style>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-5">
 
+                    <!-- استشارات صيدلانية -->
                     <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                         <div class="service-item">
                             <div class="img">
-                                <img src="assets/img/services-1.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/mo2.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="details position-relative">
                                 <div class="icon">
-                                    <i class="bi bi-activity"></i>
+                                    <i class="bi bi-capsule"></i>
                                 </div>
                                 <a href="service-details.html" class="stretched-link">
                                     <h3>استشارات صيدلانية</h3>
@@ -176,16 +197,17 @@
                                 <p>نقدم استشارات صيدلانية متخصصة حول الأدوية والتفاعلات الدوائية والجرعات المناسبة.</p>
                             </div>
                         </div>
-                    </div><!-- End Service Item -->
+                    </div>
 
+                    <!-- توصيل الأدوية -->
                     <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                         <div class="service-item">
                             <div class="img">
-                                <img src="assets/img/services-2.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/mo3.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="details position-relative">
                                 <div class="icon">
-                                    <i class="bi bi-broadcast"></i>
+                                    <i class="bi bi-truck"></i>
                                 </div>
                                 <a href="service-details.html" class="stretched-link">
                                     <h3>توصيل الأدوية</h3>
@@ -193,16 +215,17 @@
                                 <p>خدمة توصيل سريعة وآمنة للأدوية والمستلزمات الطبية إلى منزلك في أسرع وقت.</p>
                             </div>
                         </div>
-                    </div><!-- End Service Item -->
+                    </div>
 
+                    <!-- فحوصات سريعة -->
                     <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="service-item">
                             <div class="img">
-                                <img src="assets/img/services-3.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/mo4.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="details position-relative">
                                 <div class="icon">
-                                    <i class="bi bi-easel"></i>
+                                    <i class="bi bi-heart-pulse"></i>
                                 </div>
                                 <a href="service-details.html" class="stretched-link">
                                     <h3>فحوصات سريعة</h3>
@@ -210,11 +233,11 @@
                                 <p>نقدم فحوصات سريعة لضغط الدم، السكري، والكوليسترول بمقابل رمزي.</p>
                             </div>
                         </div>
-                    </div><!-- End Service Item -->
+                    </div>
 
                 </div>
-
             </div>
+
 
         </section><!-- /قسم الخدمات -->
         <!-- قسم العملاء -->
@@ -258,31 +281,33 @@
 
             <div class="container">
 
-                <ul class="nav nav-tabs row  d-flex" data-aos="fade-up" data-aos-delay="100">
+                <ul class="nav nav-tabs row d-flex" data-aos="fade-up" data-aos-delay="100">
                     <li class="nav-item col-3">
                         <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                            <i class="bi bi-binoculars"></i>
+                            <i class="bi bi-capsule"></i> <!-- كبسولة: مناسبة لجودة المنتجات -->
                             <h4 class="d-none d-lg-block">جودة المنتجات</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                            <i class="bi bi-box-seam"></i>
+                            <i class="bi bi-truck"></i> <!-- شاحنة: مناسبة لخدمة التوصيل -->
                             <h4 class="d-none d-lg-block">خدمة التوصيل</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                            <i class="bi bi-brightness-high"></i>
+                            <i class="bi bi-chat-dots"></i> <!-- فقاعات محادثة: مناسبة للاستشارات -->
                             <h4 class="d-none d-lg-block">الاستشارات الطبية</h4>
                         </a>
                     </li>
                     <li class="nav-item col-3">
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
-                            <i class="bi bi-command"></i>
+                            <i class="bi bi-star-fill"></i> <!-- نجمة ممتلئة: مناسبة للعروض المميزة -->
                             <h4 class="d-none d-lg-block">العروض الخاصة</h4>
                         </a>
                     </li>
+                </ul>
+
                 </ul><!-- End Tab Nav -->
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
@@ -307,7 +332,7 @@
                                 </p>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                <img src="assets/img/working-1.jpg" alt="" class="img-fluid">
+                                <img src="assets/img/mo6.jpg" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div><!-- End Tab Content Item -->
@@ -470,50 +495,68 @@
                 <h2>منتجاتنا</h2>
                 <p>تصفح  منتجاتنا</p>
             </div><!-- End Section Title -->
-
             <div class="container">
                 <div class="row gy-4 justify-content-center">
                     @foreach (var item in Model.product)
                     {
-                        <div class="col-lg-4 col-md-6 portfolio-item mb-4">
-                            <div class="portfolio-content">
-                                <img src="~/assets/img/portfolio/@item.MainImg" alt="@item.Name" class="img-fluid">
-                                <h5 class="product-title">@item.Name</h5>
-                                <div class="rating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item mb-4">
+                            <div class="portfolio-content border p-3 rounded shadow-sm bg-white text-center">
+
+                                <!-- صورة المنتج مصغّرة -->
+                                <img src="~/assets/img/portfolio/@item.MainImg"
+                                alt="@item.Name"
+                                class="img-fluid mb-2 rounded"
+                                style="max-height: 180px; width: auto; object-fit: contain;" />
+
+                                <!-- اسم المنتج -->
+                                <h6 class="product-title mt-2 fw-bold">@item.Name</h6>
+
+                                <!-- التقييم التفاعلي -->
+                                <div class="star-rating d-flex justify-content-center flex-row-reverse text-warning mb-2" data-product-id="@item.ProductId" data-selected="@item.Rate">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="bi @(i <= item.Rate ? "bi-star-fill" : "bi-star") star"
+                                        data-value="@i"
+                                        style="cursor: pointer; font-size: 1.2rem;"></i>
+                                    }
                                 </div>
-                                <p class="price">
+
+
+                                <!-- السعر -->
+                                <p class="price mt-2 mb-0">
                                     @if (item.Discount > 0)
                                     {
                                         var discountedPrice = item.Price - ((decimal)item.Price * (decimal)item.Discount / 100m);
-                                        <del>@item.Price.ToString("C")</del>
-                                        <span>@discountedPrice.ToString("C")</span>
+                                        <del class="text-muted">@item.Price.ToString("C")</del>
+
+                                        <br />
+                                        <span class="text-success fw-bold">@discountedPrice.ToString("C")</span>
                                     }
                                     else
                                     {
-                                        <span>@item.Price.ToString("C")</span>
+                                        <span class="text-dark fw-bold">@item.Price.ToString("C")</span>
                                     }
                                 </p>
-                                @* <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a> *@
+
                             </div>
                         </div>
                     }
+                </div>
+            </div>
 
-                    <div class="d-flex justify-content-center mt-4">
-                        <a asp-area="Customer" asp-controller="Home" asp-action="Products" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-sm">
-                            <i class="bi bi-cart-plus me-2"></i> عرض جميع المنتجات
-                        </a>
-                    </div>
-                </div><!-- End Isotope Container -->
+
+
+            <div class="d-flex justify-content-center mt-4">
+                <a asp-area="Customer" asp-controller="Home" asp-action="Products" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-sm">
+                    <i class="bi bi-cart-plus me-2"></i> عرض جميع المنتجات
+                </a>
+            </div>
+            </div><!-- End Isotope Container -->
 
             </div><!-- End Container -->
 
         </section><!-- /قسم المنتجات -->
-        </section><!-- /قسم الخدمات 2 -->
+
         <!-- قسم آراء العملاء -->
         <section id="testimonials" class="testimonials section dark-background">
 
@@ -529,45 +572,38 @@
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
                         {
-                          "loop": true,
-                          "speed": 600,
-                          "autoplay": {
-                            "delay": 5000
-                          },
-                          "slidesPerView": "auto",
-                          "pagination": {
-                            "el": ".swiper-pagination",
-                            "type": "bullets",
-                            "clickable": true
-                          }
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                        "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                        }
                         }
                     </script>
                     <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/notes/note-1.jpg" class="testimonial-img" alt="">
-                                <h3>نصيحة صحية</h3>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>تأكد من شرب كمية كافية من الماء يوميًا (8-10 أكواب) لدعم صحتك العامة وتعزيز عملية التمثيل الغذائي.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
+                        @foreach (var item in Model.Notes)
+                        {
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">           
+                                    <h3>@item.Auther</h3>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span>@item.notes</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
                             </div>
-                        </div><!-- End note item -->
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/notes/note-2.jpg" class="testimonial-img" alt="">
-                                <h3>عرض خاص</h3>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>استفد من خصم 20% على جميع مكملات الفيتامينات هذا الأسبوع! زورونا الآن أو اطلبوا عبر الإنترنت.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End note item -->
+                            <!-- End note item -->
+                        }
+                    </div>
 
+                 
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -650,6 +686,61 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    @* <script> *@
+    @*     document.addEventListener("DOMContentLoaded", function () { *@
+    @*         const stars = document.querySelectorAll('.star-rating .star'); *@
+
+    @*         stars.forEach(star => { *@
+    @*             // Hover effect *@
+    @*             star.addEventListener('mouseover', function () { *@
+    @*                 const value = parseInt(this.getAttribute('data-value')); *@
+    @*                 const parent = this.parentElement; *@
+
+    @*                 parent.querySelectorAll('.star').forEach(s => { *@
+    @*                     s.classList.remove('bi-star-fill'); *@
+    @*                     s.classList.add('bi-star'); *@
+    @*                 }); *@
+
+    @*                 parent.querySelectorAll('.star').forEach(s => { *@
+    @*                     if (parseInt(s.getAttribute('data-value')) <= value) { *@
+    @*                         s.classList.remove('bi-star'); *@
+    @*                         s.classList.add('bi-star-fill'); *@
+    @*                     } *@
+    @*                 }); *@
+    @*             }); *@
+
+    @*             // Click to rate *@
+    @*             star.addEventListener('click', function () { *@
+    @*                 const value = parseInt(this.getAttribute('data-value')); *@
+    @*                 const productId = this.closest('.star-rating').getAttribute('data-product-id'); *@
+
+    @*                 // هنا ممكن تبعت التقييم للسيرفر مثلاً باستخدام Fetch *@
+    @*                 console.log(`Rated ${value} for product ${productId}`); *@
+
+    @*                 // ثبّت التقييم بصرياً *@
+    @*                 const parent = this.parentElement; *@
+    @*                 parent.setAttribute('data-selected', value); *@
+
+    @*                 parent.querySelectorAll('.star').forEach(s => { *@
+    @*                     const sVal = parseInt(s.getAttribute('data-value')); *@
+    @*                     s.classList.toggle('bi-star-fill', sVal <= value); *@
+    @*                     s.classList.toggle('bi-star', sVal > value); *@
+    @*                 }); *@
+    @*             }); *@
+
+    @*             // Reset on mouse leave *@
+    @*             star.parentElement.addEventListener('mouseleave', function () { *@
+    @*                 const selected = parseInt(this.getAttribute('data-selected')) || 0; *@
+    @*                 this.querySelectorAll('.star').forEach(s => { *@
+    @*                     const val = parseInt(s.getAttribute('data-value')); *@
+    @*                     s.classList.toggle('bi-star-fill', val <= selected); *@
+    @*                     s.classList.toggle('bi-star', val > selected); *@
+    @*                 }); *@
+    @*             }); *@
+    @*         }); *@
+    @*     }); *@
+    @* </script> *@
 
 </body>
 </html>

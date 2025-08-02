@@ -19,7 +19,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
 
-        var products = _context.Products.Take(4).ToList();
+        var products = _context.Products.OrderBy(p => p.ProductId).Take(4).ToList();
         var notes = _context.Notes.ToList();
 
         if (products.Any())
@@ -43,18 +43,30 @@ public class HomeController : Controller
         return View(products);
     }
 
-    public IActionResult Details(int id)
+    public IActionResult Details([FromRoute] int id)
     {
-        var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+        var product = _context.Products.Include(e => e.Category).FirstOrDefault(e => e.ProductId == id);
 
-        if (product == null)
-            return NotFound(); 
+        if (product is not null)
+        {
 
-        return View(product);
+            var TopProduct = _context.Products.Where(e => e.ProductId != product.ProductId).OrderByDescending(e => e.Traffic).Skip(0).Take(4);
+            var productwithrelated = new ProductWithTopVM()
+            {
+                Product = product,
+
+                TopProduct = TopProduct.ToList()
+            };
+
+
+            product.Traffic++;
+            _context.SaveChanges();
+
+            return View(productwithrelated);
+
+        }
+        return NotFound();
     }
-
-
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

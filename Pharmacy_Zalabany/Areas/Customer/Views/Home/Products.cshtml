@@ -7,9 +7,12 @@
 
         <!-- روابط التواصل -->
         <div class="social-links d-flex align-items-center gap-3">
-            <a href="#" class="fs-5" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.facebook.com/share/1LZLqauEJB/" class="fs-5" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
             <a href="#" class="fs-5" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/201234567890" class="fs-5" style="color: #25d366;"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://wa.me/201205322975?text="
+               class="fs-4" style="color: #25d366;" target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp"></i>
+            </a>
         </div>
 
         <!-- اللوجو -->
@@ -43,40 +46,80 @@
                 @foreach (var item in Model)
                 {
                     <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@item.Category.Name</div>
-                            <!-- HOT badge-->
-                            @if (item.Discount > discount)
+                        <div class="card h-100 position-relative">
+
+                            <!-- شارة القسم -->
+                            <div class="badge bg-primary text-white position-absolute" style="top: 0.5rem; left: 0.5rem;">
+                                @item.Category?.Name
+                            </div>
+
+                            <!-- شارة الخصم -->
+                            @if (item.Discount > 0)
                             {
-                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; left: 0.5rem">HOT (@item.Discount%)</div>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">
+                                    خصم @item.Discount%
+                                </span>
                             }
-                            <!-- Product image-->
-                            <img class="card-img-top" src="~/assets/img/portfolio/@item.MainImg" alt="..." />
-                            <!-- Product details-->
+
+                            <!-- صورة المنتج -->
+                            <img class="card-img-top" src="~/assets/img/portfolio/@item.MainImg" alt="@item.Name" />
+
+                            <!-- تفاصيل المنتج -->
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- Product name-->
+                                    <!-- اسم المنتج -->
                                     <h5 class="fw-bolder">@item.Name</h5>
-                                    <!-- Product reviews-->
+
+                                    <!-- التقييم -->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= item.Rate)
+                                            {
+                                                <i class="bi bi-star-fill"></i> <!-- نجمة ممتلئة -->
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-star"></i> <!-- نجمة فارغة -->
+                                            }
+                                        }
                                     </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">@item.Price.ToString("c")</span>
-                                    @((item.Price - (item.Price * ((decimal)item.Discount / 100))).ToString("c"))
+
+
+                                    <!-- السعر -->
+                                    <div>
+                                        @if (item.Discount > 0)
+                                        {
+                                            <span class="text-muted text-decoration-line-through">
+                                                @item.Price.ToString("0.00") جنيه
+                                            </span>
+                                            <div class="text-success fw-bold">
+                                                @((item.Price - (item.Price * ((decimal)item.Discount / 100))).ToString("0.00")) جنيه
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="fw-bold text-dark">
+                                                @item.Price.ToString("0.00") جنيه
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Product actions-->
+
+                            <!-- زر التفاصيل -->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a asp-area="Customer" asp-controller="Home" asp-action="Details" asp-route-id="@item.ProductId"  class="btn btn-outline-dark mt-auto">عرض تفاصيل المنتج</a></div>
+                                <div class="text-center">
+                                    <a asp-area="Customer" asp-controller="Home" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-outline-primary mt-auto">
+                                        عرض تفاصيل المنتج
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 }
             </div>
         </div>
+    </section>
+</div>

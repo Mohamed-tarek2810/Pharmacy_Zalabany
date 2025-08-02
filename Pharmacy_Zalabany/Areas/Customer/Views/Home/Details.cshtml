@@ -1,23 +1,120 @@
-﻿@model Products
+﻿@model ProductWithTopVM
 
-<div class="card mb-4 shadow-lg border-0 rounded-4 overflow-hidden" style="max-width:1000px;">
-    <div class="row g-0">
-        @* movie pic             *@
-        <div class="col-md-4 bg-dark">
-            <img src="/images/movies/@Model.MainImg"
-                 class="img-fluid h-100 object-fit-cover rounded-start"
-                 alt="Movie image" style="min-height: 100%;" />
+<header id="header" class="header fixed-top bg-white shadow-sm py-2" dir="rtl">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <div class="social-links d-flex align-items-center gap-3">
+            <a href="https://www.facebook.com/share/1LZLqauEJB/" class="fs-5" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="fs-5" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/201205322975?text="
+               class="fs-4" style="color: #25d366;" target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp"></i>
+            </a>
         </div>
 
-        @* Details *@
-        <div class="col-md-8 bg-light">
-            <div class="card-body p-4">
-                <h3 class="card-title mb-3 text-primary fw-bold">@Model.Name</h3>
-                <p class="card-text text-muted">@Model.Description</p>
+        <a href="index.html" class="logo d-flex align-items-center mx-3">
+            <h1 class="sitename text-dark fw-bold fs-3 mb-0">صيدلية الزلباني</h1>
+        </a>
 
+        <nav id="navmenu" class="navmenu d-none d-xl-block">
+            <ul class="nav gap-3">
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="hero" class="nav-link text-dark fw-semibold">الصفحة الرئيسية</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="about" class="nav-link text-dark fw-semibold">من نحن</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="services" class="nav-link text-dark fw-semibold">الخدمات</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="portfolio" class="nav-link text-dark fw-semibold">المنتجات</a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="contact" class="nav-link text-dark fw-semibold">تواصل معنا</a></li>
+            </ul>
+        </nav>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list fs-2 text-dark"></i>
+    </div>
+</header>
+
+<main class="container py-5 mt-5 pt-5">
+    <div class="row gx-5 gy-4 align-items-center justify-content-center">
+        <!-- صورة المنتج -->
+        <div class="col-md-5 col-lg-4 text-center">
+            <img src="~/assets/img/portfolio/@Model.Product.MainImg" alt="@Model.Product.Name"
+                 class="img-fluid rounded shadow-sm border border-2" style="max-height: 300px; width: auto;" />
+        </div>
+
+        <!-- تفاصيل المنتج -->
+        <div class="col-md-6 col-lg-6 mx-auto bg-light rounded-4 shadow-sm p-5 text-center">
+
+            <span class="badge bg-primary mb-3 px-3 py-2 fs-6">
+                منتج من قسم: @Model.Product.Category?.Name
+            </span>
+
+            <h2 class="fw-bold text-primary mb-2">@Model.Product.Name</h2>
+            <p class="text-muted small mb-4">@Model.Product.Description</p>
+
+            <div class="card-body text-center p-2 position-relative">
+                @if (Model.Product.Discount > 0)
+                {
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">
+                        خصم @Model.Product.Discount%
+                    </span>
+                }
+
+                <div class="text-success fw-bold fs-4 mb-1">
+                    @((Model.Product.Price - (Model.Product.Price * ((decimal)Model.Product.Discount / 100))).ToString("0.00")) جنيه
+                </div>
+
+                <div class="text-muted text-decoration-line-through small">
+                    @Model.Product.Price.ToString("0.00") جنيه
                 </div>
             </div>
+
+            <div class="d-grid">
+                <a class="btn btn-success btn-lg d-flex align-items-center justify-content-center gap-2"
+                   href="https://wa.me/201205322975?text= @Model.Product.Name"
+                   target="_blank" rel="noopener">
+                    <i class="bi bi-whatsapp fs-5"></i>
+                    تواصل واطلب الآن
+                </a>
+            </div>
+
         </div>
     </div>
-</div>
 
+    <!-- منتجات مميزة -->
+    <section class="py-5 mt-5 bg-light">
+        <div class="container">
+            <h3 class="fw-bold mb-4 text-center">منتجات مميزة</h3>
+            <div class="row g-4">
+                @foreach (var item in Model.TopProduct.Take(4))
+                {
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100 border-0 shadow-sm text-center p-3">
+                            <img src="~/assets/img/portfolio/@item.MainImg" alt="@item.Name"
+                                 class="img-fluid rounded shadow-sm mb-3"
+                                 style="max-height: 230px; object-fit: contain;" />
+
+                            <h6 class="fw-bold text-primary">@item.Name</h6>
+
+                            <div class="position-relative">
+                                @if (item.Discount > 0)
+                                {
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">
+                                        خصم @item.Discount%
+                                    </span>
+                                }
+
+                                <div class="text-muted text-decoration-line-through small">
+                                    @item.Price.ToString("0.00") جنيه
+                                </div>
+
+                                <div class="text-success fw-bold fs-6 mt-2">
+                                    @((item.Price - (item.Price * ((decimal)item.Discount / 100))).ToString("0.00")) جنيه
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+            </div>
+        </div>
+    </section>
+</main>

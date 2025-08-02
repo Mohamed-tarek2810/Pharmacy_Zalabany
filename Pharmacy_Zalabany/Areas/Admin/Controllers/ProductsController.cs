@@ -12,7 +12,7 @@ namespace Pharmacy_Zalabany.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var product = _context.Products.ToList();
+            var product = _context.Products.Include(e=>e.Category).ToList();
             return View(product);
         }
 
@@ -28,29 +28,39 @@ namespace Pharmacy_Zalabany.Areas.Admin.Controllers
             };
             return View(CategoriesAndProductsvm);
         }
-        [HttpPost]
-        public IActionResult Index1(Products product)//create page 
-        {
 
-            _context.Add(product);
+        [HttpPost]
+        public IActionResult Index1(Products Products)
+        {
+            _context.Add(Products);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
-
         }
+
         [HttpGet]
-        public IActionResult Edit([FromRoute] int id)
+        public IActionResult Edit(int id)
         {
-            var Products = _context.Products.Find(id);
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+            if (product == null)
+                return NotFound();
 
-            return View(Products);
+            var categorys = _context.Categorys.ToList();
+
+            var CategoriesAndProducts = new CategoriesAndProductsvm
+            {
+                Product = product,
+                Categorys = categorys
+            };
+
+            return View(CategoriesAndProducts); 
         }
-        //return RedirectToAction(actionMame: "NotFoundPage", controllertumo: "Home"); 
+
 
         [HttpPost]
-        public IActionResult Edit(Products product)
+        public IActionResult Edit(Products Products)
         {
-            _context.Update(product);
+            _context.Update(Products);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));

@@ -1,4 +1,4 @@
-﻿@* @model List<Products> *@
+﻿ @model List<Products>
 
 <!DOCTYPE html>
 <head>
@@ -37,6 +37,8 @@
                         <th>الوصف</th>
                         <th>السعر</th>
                         <th>الخصمات</th>
+                        <th>التقيم</th>
+                        <th>الكميه </th>
                         <th>الصورة</th>
                         <th>حالة المنتج</th>
                         <th>اسم الفئة</th>
@@ -67,6 +69,10 @@
                             <td>@product.Price</td>
 
                             <td>@($"{product.Discount}%")</td>
+
+                            <td>@product.Rate</td>
+
+                            <td>@product.Quantity</td>
                             
                             <td>@product.MainImg</td>
 
@@ -87,7 +93,8 @@
 
                             
                             <td>
-                                <a href="/Admin/Products/Edit?ProductId=@product.ProductId" class="btn btn-sm btn-warning mx-1">تعديل</a>
+                                <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-sm btn-warning mx-1">تعديل</a>
+
                                 <a href="/Admin/Products/Delete/@product.ProductId" class="btn btn-sm btn-danger mx-1"
                                    onclick="return confirm('هل أنت متأكد أنك تريد حذف هذا المنتج؟');">حذف</a>
                             </td>
