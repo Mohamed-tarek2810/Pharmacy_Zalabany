@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
@@ -37,11 +38,29 @@ public class HomeController : Controller
 
     }
 
-    public IActionResult Products()
+    public IActionResult Products(ProductFilterVM productFilterVM, int page = 1)
     {
-        var products = _context.Products.Include(e=>e.Category).ToList();
-        return View(products);
+        IQueryable <Products> products = _context.Products.Include(e=>e.Category);
+
+        if (productFilterVM.ProductName is not null)
+        {
+            products = products.Where(e => e.Name.Contains(productFilterVM.ProductName));
+            ViewBag.ProductName = productFilterVM.ProductName;
+        }
+
+        // Pagination
+        var totalNumberOfPage = Math.Ceiling(products.Count() / 8.0);
+
+        if (page < 0)
+            page = 1;
+
+        products = products.Skip((page - 1) * 8).Take(count: 8);
+        ViewBag.TotalNumberOfPage = totalNumberOfPage;
+        ViewBag.CurrentPage = page;
+        return View(products.ToList());
     }
+
+
 
     public IActionResult Details([FromRoute] int id)
     {

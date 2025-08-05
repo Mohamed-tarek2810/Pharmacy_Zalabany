@@ -931,11 +931,11 @@ section,
 }
 
 .hero:before {
-  content: "";
+/*  content: "";
   background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 2;*/
 }
 
 .hero .container {
@@ -943,18 +943,22 @@ section,
   z-index: 3;
 }
 
-.hero h2 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
+    .hero h2 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: right; /* محاذاة النص لليمين */
+        direction: rtl; /* اتجاه النص من اليمين لليسار */
+    }
 
-.hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin: 10px 0 0 0;
-  font-size: 24px;
-}
+    .hero p {
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin: 10px 0 0 0;
+        font-size: 24px;
+        text-align: right; /* محاذاة النص لليمين */
+        direction: rtl; /* اتجاه النص من اليمين لليسار */
+    }
 
 .hero .btn-get-started {
   background: var(--accent-color);

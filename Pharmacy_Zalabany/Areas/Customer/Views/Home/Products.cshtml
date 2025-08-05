@@ -1,58 +1,75 @@
 ﻿@model List<Products>
 @{
-    var discount = 50;
+    ViewData["Title"] = "المنتجات";
+    var search = ViewBag.Search as string ?? "";
 }
+
 <header id="header" class="header fixed-top bg-white shadow-sm py-2" dir="rtl">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-        <!-- روابط التواصل -->
         <div class="social-links d-flex align-items-center gap-3">
             <a href="https://www.facebook.com/share/1LZLqauEJB/" class="fs-5" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="fs-5" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/201205322975?text="
-               class="fs-4" style="color: #25d366;" target="_blank" rel="noopener">
+            <a href="https://www.instagram.com/zalabanypharmacy10?utm_source=qr&igsh=Z2N3MHVkajZ6aHBw " class="fs-5" style="color: #e1306c;"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/201101003057?text=" class="fs-4" style="color: #25d366;" target="_blank" rel="noopener">
                 <i class="bi bi-whatsapp"></i>
             </a>
         </div>
-
-        <!-- اللوجو -->
         <a href="index.html" class="logo d-flex align-items-center mx-3">
             <h1 class="sitename text-dark fw-bold fs-3 mb-0">صيدلية الزلباني</h1>
         </a>
-
-        <!-- القوائم -->
         <nav id="navmenu" class="navmenu d-none d-xl-block">
             <ul class="nav gap-3">
-                <li class="nav-item"> <a asp-area="Customer" asp-controller="Home"asp-action="Index"asp-fragment="hero" class="nav-link text-dark fw-semibold">الصفحة الرئيسية </a></li>
+                <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="hero" class="nav-link text-dark fw-semibold">الصفحة الرئيسية</a></li>
                 <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="about" class="nav-link text-dark fw-semibold">من نحن</a></li>
                 <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="services" class="nav-link text-dark fw-semibold">الخدمات</a></li>
                 <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="portfolio" class="nav-link text-dark fw-semibold">المنتجات</a></li>
                 <li class="nav-item"><a asp-area="Customer" asp-controller="Home" asp-action="Index" asp-fragment="contact" class="nav-link text-dark fw-semibold">تواصل معنا</a></li>
             </ul>
         </nav>
-
-        <!-- زر القوائم للموبايل -->
         <i class="mobile-nav-toggle d-xl-none bi bi-list fs-2 text-dark"></i>
-
     </div>
 </header>
 
+<!-- 🔍 Filter Bar -->
+<div class="container mb-4 mt-5 pt-4">
+    <form method="get" asp-action="Products" class="row g-2 align-items-center">
+        <div class="col-md-4">
+            <input type="text" name="ProductName" class="form-control" placeholder="ابحث باسم المنتج..." value="@ViewBag.ProductName" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-search me-1"></i> بحث
+            </button>
+        </div>
+    </form>
+</div>
 
-
+<!-- 🔍 نتائج البحث أو رسالة التنبيه -->
+<div class="container mb-5">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center py-5 fs-4 fw-bold w-100" role="alert" style="font-size: 2rem;">
+            🚫 المنتج غير متوفر حالياً
+        </div>
+    }
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- 🛍️ المنتجات -->
 <div class="container">
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+        <div class="container px-4 px-lg-5 mt-3">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 @foreach (var item in Model)
                 {
                     <div class="col mb-5">
                         <div class="card h-100 position-relative">
-
                             <!-- شارة القسم -->
                             <div class="badge bg-primary text-white position-absolute" style="top: 0.5rem; left: 0.5rem;">
                                 @item.Category?.Name
                             </div>
-
                             <!-- شارة الخصم -->
                             @if (item.Discount > 0)
                             {
@@ -60,32 +77,26 @@
                                     خصم @item.Discount%
                                 </span>
                             }
-
                             <!-- صورة المنتج -->
-                            <img class="card-img-top" src="~/assets/img/portfolio/@item.MainImg" alt="@item.Name" />
-
+                            <img class="card-img-top" src="@Url.Content("~/assets/img/portfolio/" + item.MainImg)" alt="@item.Name" />
                             <!-- تفاصيل المنتج -->
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <!-- اسم المنتج -->
                                     <h5 class="fw-bolder">@item.Name</h5>
-
                                     <!-- التقييم -->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         @for (int i = 1; i <= 5; i++)
                                         {
                                             if (i <= item.Rate)
                                             {
-                                                <i class="bi bi-star-fill"></i> <!-- نجمة ممتلئة -->
+                                                <i class="bi bi-star-fill"></i>
                                             }
                                             else
                                             {
-                                                <i class="bi bi-star"></i> <!-- نجمة فارغة -->
+                                                <i class="bi bi-star"></i>
                                             }
                                         }
                                     </div>
-
-
                                     <!-- السعر -->
                                     <div>
                                         @if (item.Discount > 0)
@@ -106,7 +117,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- زر التفاصيل -->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
@@ -115,11 +125,54 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 }
             </div>
+
+            <!-- ✅ Pagination يظهر فقط إذا فيه منتجات -->
+            @if (Model.Any())
+            {
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                @if (ViewBag.CurrentPage > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Products", new {
+                                            ProductName = ViewBag.ProductName,
+
+                                            page = ViewBag.CurrentPage - 1
+                                        })">السابق</a>
+                                    </li>
+                                }
+                                
+                                @for (var i = 1; i <= ViewBag.TotalNumberOfPage; i++)
+                                {
+                                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                        <a class="page-link" href="@Url.Action("Products", new {
+                                            ProductName = ViewBag.ProductName,
+                                            page = i
+                                        })">@i</a>
+                                    </li>
+
+                                }
+
+                                @if (ViewBag.CurrentPage < ViewBag.TotalNumberOfPage)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Products", new {
+                                            ProductName = ViewBag.ProductName,
+                                            page = ViewBag.CurrentPage + 1
+                                        })">التالي</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            }
         </div>
     </section>
 </div>

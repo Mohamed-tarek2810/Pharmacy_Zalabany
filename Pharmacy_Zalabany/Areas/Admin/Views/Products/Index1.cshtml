@@ -69,10 +69,13 @@
             </div>
 
 
-            <div class="mb-3">
-                <label for="MainImg" class="form-label">رابط صورة المنتج</label>
-                <input type="text" name="MainImg" id="MainImg" class="form-control" required />
+            <div class="image-upload-container">
+                <label for="MainImg" class="form-label">اختر صورة المنتج</label>
+                <input type="file" name="MainImg" id="MainImg" class="form-control" accept="image/*" onchange="previewImage(event)" required />
+
+                <img id="imagePreview" class="image-preview mt-3" style="display: none;" />
             </div>
+
 
             <div class="mb-3">
                 <label for="Status" class="form-label">الحالة</label>
@@ -100,3 +103,20 @@
     </div>
 </body>
 </html>
+<script>
+    function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById('imagePreview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

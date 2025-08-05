@@ -58,6 +58,9 @@ namespace Pharmacy_Zalabany.Migrations
                     b.Property<string>("notes")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("number")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
 
                     b.ToTable("Notes");

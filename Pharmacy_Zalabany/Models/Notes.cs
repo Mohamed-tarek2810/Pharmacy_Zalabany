@@ -6,6 +6,7 @@ namespace Pharmacy_Zalabany.Models
     {
         [Key]
         public int id { get; set; }
+        public int number { get; set; }
         public string? notes { get; set; }
 
         public string? Auther { get; set; }
